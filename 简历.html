@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden; /*防止内容超出*/
+        }
+        .gradient-backdrop {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, red, green); /*线性渐变示例*/
+            z-index: -1; /*确保背景在内容之上*/
+        }
+        .blog-content {
+            position: relative;
+            text-align: center;
+            color: white;
+            font-size: 24px;
+            line-height: 1.5;
+        }
+        @keyframes gradientAnimation {
+            from {
+                background-position: 0% 50%;
+            }
+            to {
+                background-position: 100% 50%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="gradient-backdrop"></div>
+    <div class="blog-content">
+        <h1>谦*_的简历</h1>
+        <p>点击按钮了解谦*_吧</p>
+    </div>
+    <button onclick="location.href='https://cares-ray.github.io/Moll-Ray'">传送门</button>
+</body>
+</html>
