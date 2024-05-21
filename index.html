@@ -10,6 +10,7 @@
     <link rel="icon" href="./favicon.ico">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/viewer.min.css">
+    <link rel="shortcut icon" href="https://y.cenguigui.cn/lihua/image/logo.jpg" type="image/x-icon">
 </head>
 
 <body>
@@ -66,7 +67,11 @@
                 <a href="https://res.abeim.cn/api/qq/?qq=3445813332">联系</a>
             </div>
         </div>
-
+        
+<!--注释，加载热歌榜，设置cdn引入的路径，选择播放器颜色，让播放器淡出-->
+    <div id="gui-MusicPlayer" data-songChart="热歌榜" data-cdnName="https://y.cenguigui.cn/js" data-themeColor="gui-sky" data-fadeOutAutoplay></div>
+    <script src="https://y.cenguigui.cn/js/gui-MusicPlayer/js/gui-MusicPlayer.js"></script>
+        
         <!-- 左侧拉出菜单 顶部菜单 -->
         <div class="leftBar-titleMenu" id="leftBar-titleMenu">
             <div class="leftBar-ButtomClose" onclick="MenuClick(false)">
