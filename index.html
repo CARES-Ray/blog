@@ -12,7 +12,57 @@
     <link rel="stylesheet" href="./css/viewer.min.css">
     <link rel="shortcut icon" href="https://y.cenguigui.cn/lihua/image/logo.jpg" type="image/x-icon">
 </head>
+  <script>
+        #comment-list {
+  list-style: none;
+  padding: 0;
+}
 
+.comment {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.avatar {
+  margin-right: 10px;
+}
+
+.avatar img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.comment-info {
+  margin-bottom: 5px;
+}
+
+.nickname {
+  font-weight: bold;
+}
+
+.comment-text {
+  margin-top: 5px;
+}
+
+#comment-form {
+  margin-top: 20px;
+}
+
+#comment-input {
+  width: 100%;
+  height: 100px;
+  resize: none;
+}
+
+#image-input {
+  margin-top: 10px;
+}
+
+button[type="submit"] {
+  margin-top: 10px;
+}
+    </script>
 <body>
 
     <!-- ALL -->
@@ -345,11 +395,88 @@
             <p class="right"><a href="http://beian.miit.gov.cn">粤ICP备20005603号-2</a></p>
         </div>
     </div>
+     <ul id="comment-list">
+        <!-- 评论项 -->
+        <li class="comment">
+          <div class="avatar">
+            <img src="avatar.jpg" alt="用户头像">
+          </div>
+          <div class="comment-content">
+            <div class="comment-info">
+              <span class="nickname">用户昵称</span>
+              <span class="time">评论时间</span>
+            </div>
+            <div class="comment-text">
+              评论内容
+            </div>
+          </div>
+        </li>
+        ...
+      </ul>
+    <form id="comment-form">
+        <textarea id="comment-input" placeholder="请输入评论内容"></textarea>
+        <input type="file" id="image-input" accept="image/*">
+        <button type="submit">提交评论</button>
+      </form>
     <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script>
     <script src="./js/N0ts.js"></script>
     <script src="./js/viewer.min.js"></script>
     <script src="./js//lovetime.js"></script>
     <script>resize();</script>
+     <script>
+        document.getElementById('comment-form').addEventListener('submit', function(event) {
+  event.preventDefault(); // 阻止表单的默认提交行为
+
+  var commentInput = document.getElementById('comment-input').value;
+  var imageInput = document.getElementById('image-input').files[0];
+
+  // 创建新的评论项
+  var newComment = document.createElement('li');
+  newComment.classList.add('comment');
+
+  // 创建评论项的内容
+  var avatar = document.createElement('div');
+  avatar.classList.add('avatar');
+  var avatarImage = document.createElement('img');
+  avatarImage.src = 'avatar.jpg';
+  avatarImage.alt = '用户头像';
+  avatar.appendChild(avatarImage);
+
+  var commentContent = document.createElement('div');
+  commentContent.classList.add('comment-content');
+
+  var commentInfo = document.createElement('div');
+  commentInfo.classList.add('comment-info');
+  var nickname = document.createElement('span');
+  nickname.classList.add('nickname');
+  nickname.textContent = '用户昵称';
+  var time = document.createElement('span');
+  time.classList.add('time');
+  time.textContent = '评论时间';
+  commentInfo.appendChild(nickname);
+  commentInfo.appendChild(time);
+
+  var commentText = document.createElement('div');
+  commentText.classList.add('comment-text');
+  commentText.textContent = commentInput;
+
+  commentContent.appendChild(commentInfo);
+  commentContent.appendChild(commentText);
+
+  newComment.appendChild(avatar);
+  newComment.appendChild(commentContent);
+
+  // 将评论项添加到评论列表
+  var commentList = document.getElementById('comment-list');
+  commentList.appendChild(newComment);
+
+  // 清空评论输入框
+  document.getElementById('comment-input').value = '';
+
+  // 阻止表单的默认提交行为
+  event.preventDefault();
+});
+      </script>
 </body>
 
 </html>
