@@ -20,6 +20,25 @@
     <!-- 屏蔽F12等 -->
     <script src="https://api.cenguigui.cn/api/lib-youjian"></script>
 <!-- 屏蔽F12等 end-->
+	<style>
+        #floating-comment-box {
+          position: fixed;
+          bottom: 5px;
+          right: 5px;
+          width: 100px;
+          background-color: rgb(37, 37, 37);
+          border: solid 1px #000000;
+          border-radius: 5px;
+          padding: 5px;
+          display: flex;
+          flex-direction: column;
+        }
+        #comment-text {
+          flex-grow: 1;
+          margin-bottom: 5px;
+        }
+    </style>
+	
 </head>
     
 <body>
@@ -367,6 +386,20 @@
             <p class="right"><a href="http://beian.miit.gov.cn">粤ICP备20005603号-2</a></p>
         </div
     </div>
+	<!-- 悬浮评论框 -->
+    <div id="floating-comment-box">
+      <h2>留下你的足迹</h2>
+      <textarea id="comment-text" placeholder="点击进入聊天室..."></textarea>
+      <button onclick="window.open('https://cares-ray.github.io/chatroom/')">聊天室</button>
+    </div>
+   <script>
+        // function handleSubmitComment) { let commentText =
+      document.getElementByld(comment- text').value = '';
+      if(commentText.trim) ===){
+      alert(ii2FAE!): 
+      return;
+      } // 在这里提交评论到服务器 // 你需要实现一个发送 POST 请求的 JavaScript 函数，将评论提交到你的服务器 // 提示成功并清空评论框 alert('评论提交成功！'); document.getElementById('comment-text').value = ''; } 
+    </script> 
     <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script>
     <script src="./js/N0ts.js"></script>
     <script src="./js/viewer.min.js"></script>
